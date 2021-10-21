@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/locationsNavButton"
+        android:icon="@drawable/ic_baseline_location_on_24"
+        android:title="Locations" />
+    <item
+        android:id="@+id/weatherNavButton"
+        android:icon="@drawable/ic_baseline_cloud_24"
+        android:title="Weather" />
+</menu>
