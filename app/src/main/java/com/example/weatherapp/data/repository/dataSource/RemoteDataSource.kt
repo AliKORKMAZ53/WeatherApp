@@ -1,4 +1,4 @@
-package com.example.weatherapp.data.repository.DataSource
+package com.example.weatherapp.data.repository.dataSource
 
 import com.example.weatherapp.data.models.location.LocationResponse
 import com.example.weatherapp.data.models.weather.WeatherResponse

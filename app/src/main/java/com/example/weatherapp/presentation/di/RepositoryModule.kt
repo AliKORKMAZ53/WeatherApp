@@ -1,6 +1,6 @@
 package com.example.weatherapp.presentation.di
 
-import com.example.weatherapp.data.repository.DataSource.RemoteDataSource
+import com.example.weatherapp.data.repository.dataSource.RemoteDataSource
 import com.example.weatherapp.data.repository.WeatherAppRepositoryImpl
 import com.example.weatherapp.domain.repository.WeatherAppRepository
 import dagger.Module

@@ -2,7 +2,7 @@ package com.example.weatherapp.data.repository
 
 import com.example.weatherapp.data.models.location.LocationResponse
 import com.example.weatherapp.data.models.weather.WeatherResponse
-import com.example.weatherapp.data.repository.DataSource.RemoteDataSource
+import com.example.weatherapp.data.repository.dataSource.RemoteDataSource
 import com.example.weatherapp.data.util.Resource
 import com.example.weatherapp.domain.repository.WeatherAppRepository
 import retrofit2.Response

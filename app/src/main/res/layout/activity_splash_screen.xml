@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SplashScreen">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        app:srcCompat="@drawable/ic_sunframe" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:fontFamily="@font/bungee"
+        android:gravity="center|top"
+        android:padding="20dp"
+        android:text="Weather App"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="34sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startAppButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/anton"
+        android:text="Start - >"
+        android:textColor="#FF9800"
+        android:textSize="20sp"
+        app:strokeColor="#2196F3"
+        app:strokeWidth="14dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:fontFamily="@font/text_me_one"
+        android:gravity="bottom"
+        android:padding="20dp"
+        android:text="Please give necessary permissions to be able to use application features"
+        android:textSize="20sp" />
+</LinearLayout>
