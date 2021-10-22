@@ -14,7 +14,7 @@ import javax.inject.Singleton
 class RemoteDataModule {
     @Singleton
     @Provides
-    fun provideNewsRemote(weatherApiService: WeatherApiService)
+    fun provideRemoteDataSource(weatherApiService: WeatherApiService)
             :RemoteDataSource{
         return RemoteDataSourceImpl(weatherApiService)
     }

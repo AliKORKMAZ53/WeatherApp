@@ -16,17 +16,22 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class WeatherViewModel(
-    app:Application,
-    getWeatherUsecase: GetWeatherUsecase
+    private val app:Application,
+    private val getWeatherUsecase: GetWeatherUsecase
 ):AndroidViewModel(app) {
     val weatherInfo: MutableLiveData<Resource<WeatherResponse>> =MutableLiveData()
 
-    fun getWeather(countryId:Int)=viewModelScope.launch(IO) {
+    fun getWeather(locationId:Int)=viewModelScope.launch(IO) {
         weatherInfo.postValue(Resource.Loading())
         try{
-
+            if(isNetworkAvailable(app)){
+                val response= getWeatherUsecase.execute(locationId)
+                weatherInfo.postValue(response)
+            }else{
+                weatherInfo.postValue(Resource.Error("No internet connection!"))
+            }
         }catch (e:Exception){
-
+            weatherInfo.postValue(Resource.Error(e.localizedMessage.toString()))
         }
     }
 
