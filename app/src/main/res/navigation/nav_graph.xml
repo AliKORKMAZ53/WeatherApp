@@ -19,4 +19,5 @@
         android:name="com.example.weatherapp.WeatherFragment"
         android:label="fragment_weather"
         tools:layout="@layout/fragment_weather" />
+
 </navigation>

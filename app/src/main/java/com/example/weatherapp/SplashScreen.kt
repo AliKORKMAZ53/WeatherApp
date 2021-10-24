@@ -1,6 +1,7 @@
 package com.example.weatherapp
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
@@ -22,45 +24,41 @@ class SplashScreen : AppCompatActivity() {
     private val fusedLocationClient: FusedLocationProviderClient by lazy {
         LocationServices.getFusedLocationProviderClient(applicationContext)
     }
-
+    lateinit var location: Location
     private var cancellationTokenSource = CancellationTokenSource()
-
+    lateinit var button:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-
-    var button = findViewById<Button>(R.id.startAppButton)
+        Log.d("Splashcheck","permission granted")
+        button = findViewById<Button>(R.id.startAppButton)
         button.setOnClickListener {
             checkPermission()
+            button.setText("Loading...")
         }
 
     }
     private fun checkPermission(){
         if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(this,
+                Manifest.permission.INTERNET)!=PackageManager.PERMISSION_GRANTED||
+            ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,//shouldshowrequestpermission i da deneyebilirsin
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),40)
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.INTERNET,Manifest.permission.ACCESS_NETWORK_STATE),40)
+            Log.d("Splashcheck","permission granted")
+
             checkPermission()
         }else{
-            var location= requestCurrentLocation()
-            if(location!=null){
-                var i=Intent(this,MainActivity::class.java)
-                i.putExtra("locationlls", arrayOf(location?.latitude,location?.longitude))
-                startActivity(i)
-            }else{
-                Toast.makeText(applicationContext, "Error while getting location!",Toast.LENGTH_LONG).show()
-
-            }
-
+            requestCurrentLocation()
         }
     }
-    private fun requestCurrentLocation(): Location? {
+    @SuppressLint("MissingPermission")
+    private fun requestCurrentLocation(){
         var result: Location? =null
         // Check Fine permission
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION) ==
-            PackageManager.PERMISSION_GRANTED) {
 
             // Main code
             val currentLocationTask: Task<Location> = fusedLocationClient.getCurrentLocation(
@@ -71,18 +69,28 @@ class SplashScreen : AppCompatActivity() {
             currentLocationTask.addOnCompleteListener { task: Task<Location> ->
                 if (task.isSuccessful) {
                     result= task.result
+                    Log.d("Splashcheck",result?.latitude.toString())
+                    listenLocation(result)
                 } else {
                     result=null
                     val exception = task.exception
-                    Toast.makeText(applicationContext, exception?.localizedMessage.toString(),Toast.LENGTH_LONG).show()
+                    Log.d("Splashcheck",exception?.message.toString())
                 }
 
             }
-        } else {
-            Toast.makeText(applicationContext,"Somehow Permission not granted",Toast.LENGTH_LONG).show()
 
+
+
+    }
+    fun listenLocation(location: Location?){
+        if(location!=null){
+            var i=Intent(this,MainActivity::class.java)
+            i.putStringArrayListExtra("locationlls", arrayListOf(location?.latitude.toString(),location?.longitude.toString()))
+            startActivity(i)
+            finish()
+        }else{
+            Toast.makeText(applicationContext, "Error while getting location!",Toast.LENGTH_LONG).show()
         }
-        return result
     }
 
 
@@ -90,4 +98,6 @@ class SplashScreen : AppCompatActivity() {
         super.onStop()
         cancellationTokenSource.cancel()
     }
+
+
 }

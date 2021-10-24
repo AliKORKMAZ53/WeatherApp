@@ -5,13 +5,14 @@ import com.example.weatherapp.data.models.weather.WeatherResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface WeatherApiService {
 
-    @GET("api/location/search/?lattlong={latitude},{longtitude}")
+    @GET("api/location/search")
     suspend fun getNearLocation(
-        @Path("latitude") latitude: String,
-        @Path("longtitude") longtitude: String
+        @Query("lattlong") latitude: String,
+        @Query("lattlong") longtitude: String
     ):Response<LocationResponse>
 
     @GET("api/location/{locationId}")

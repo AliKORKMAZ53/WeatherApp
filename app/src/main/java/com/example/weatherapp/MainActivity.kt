@@ -19,12 +19,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var factory: ViewModelFactory
     @Inject
     lateinit var locationAdapter:LocationAdapter
-    var doubleArray: DoubleArray? = null
+    var doubleArray: ArrayList<String>? = null
     private lateinit var binding: ActivityMainBinding
     lateinit var locationViewModel: LocationViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        doubleArray=intent.getStringArrayListExtra("locationlls")
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navHostFragment= supportFragmentManager
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navController)
         locationViewModel= ViewModelProvider(this,factory)
             .get(LocationViewModel::class.java)
-        doubleArray=intent.getDoubleArrayExtra("locationlls")
+
 
     }
 }

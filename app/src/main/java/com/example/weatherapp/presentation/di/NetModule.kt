@@ -1,12 +1,15 @@
 package com.example.weatherapp.presentation.di
 
 
+import android.util.Log
 import com.example.weatherapp.BuildConfig
 import com.example.weatherapp.data.api.WeatherApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -17,8 +20,9 @@ class NetModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BuildConfig.BASE_URL)
             .build()
@@ -28,6 +32,17 @@ class NetModule {
     @Provides
     fun provideNewsAPIService(retrofit: Retrofit):WeatherApiService{
         return retrofit.create(WeatherApiService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideOkhttpClient():OkHttpClient{
+        return OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor({
+                Log.d("okhttp",it)
+            }))
+            .build()
+
     }
 
 }
