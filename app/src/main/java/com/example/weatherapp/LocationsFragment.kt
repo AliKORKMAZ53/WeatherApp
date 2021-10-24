@@ -76,6 +76,7 @@ class LocationsFragment : Fragment() {
         fragmentLocationsBinding.locationsRecycView.apply {
             adapter=locationAdapter
             layoutManager=LinearLayoutManager(activity)
+
         }
     }
 

@@ -74,6 +74,6 @@
         android:textColor="#FF9800"
 
         app:strokeColor="#9A9A9A"
-        app:strokeWidth="2dp" />
+        app:strokeWidth="1dp" />
 
 </LinearLayout>

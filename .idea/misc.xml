@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/drawable/ic_s.xml" value="0.2703125" />
+        <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/drawable/ic_t.xml" value="0.2703125" />
         <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/drawable/layout_background.xml" value="0.2703125" />
         <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/layout/fragment_locations.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/layout/fragment_weather.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/layout/location_list_item.xml" value="0.264" />
+        <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/layout/location_list_item.xml" value="0.1" />
+        <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/layout/weather_list_item.xml" value="0.264" />
         <entry key="..\:/Users/Ahmet/AndroidNewProjects/myprojects/WeatherApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
