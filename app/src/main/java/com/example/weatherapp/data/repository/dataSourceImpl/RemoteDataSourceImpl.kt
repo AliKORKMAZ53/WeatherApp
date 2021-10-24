@@ -9,10 +9,9 @@ import retrofit2.Response
 class RemoteDataSourceImpl(private val weatherApiService: WeatherApiService)
     :RemoteDataSource{
     override suspend fun getLocation(
-        latitude: String,
-        longtitude: String
+        lattlong: String
     ): Response<LocationResponse> {
-        return weatherApiService.getNearLocation(latitude, longtitude)
+        return weatherApiService.getNearLocation(lattlong)
     }
 
     override suspend fun getWeather(locationId: Int): Response<WeatherResponse> {

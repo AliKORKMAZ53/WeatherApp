@@ -49,7 +49,7 @@ class LocationsFragment : Fragment() {
 
     private fun initLocationList() {
         if(locationlls!=null){
-            locationViewModel.getLocations(locationlls?.get(0).toString(),locationlls?.get(1).toString())
+            locationViewModel.getLocations(locationlls?.get(0).toString()+","+locationlls?.get(1).toString())
             locationViewModel.locationInfo.observe(viewLifecycleOwner,{response->
              when(response){
                  is Resource.Success->{

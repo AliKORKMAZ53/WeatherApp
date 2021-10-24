@@ -11,10 +11,9 @@ class WeatherAppRepositoryImpl(
    private val remoteDataSource: RemoteDataSource
 ):WeatherAppRepository {
     override suspend fun getNearLocations(
-        latitude: String,
-        longtitude: String
+        lattlong: String
     ): Resource<LocationResponse> {
-        return locationResponseToResource(remoteDataSource.getLocation(latitude,longtitude))
+        return locationResponseToResource(remoteDataSource.getLocation(lattlong))
     }
 
     override suspend fun getSpesificWeather(locationId: Int): Resource<WeatherResponse> {

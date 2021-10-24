@@ -11,8 +11,7 @@ interface WeatherApiService {
 
     @GET("api/location/search")
     suspend fun getNearLocation(
-        @Query("lattlong") latitude: String,
-        @Query("lattlong") longtitude: String
+        @Query("lattlong") lattlong: String
     ):Response<LocationResponse>
 
     @GET("api/location/{locationId}")

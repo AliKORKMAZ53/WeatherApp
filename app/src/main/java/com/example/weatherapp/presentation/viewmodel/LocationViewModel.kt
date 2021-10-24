@@ -21,11 +21,11 @@ class LocationViewModel(
 ):AndroidViewModel(app)  {
     val locationInfo: MutableLiveData<Resource<LocationResponse>> =MutableLiveData()
 
-    fun getLocations(latitude:String,longtitude:String)=viewModelScope.launch(Dispatchers.IO) {
+    fun getLocations(lattlong:String)=viewModelScope.launch(Dispatchers.IO) {
         locationInfo.postValue(Resource.Loading())
         try{
             if(isNetworkAvailable(app)){
-                val response= getLocationUsecase.execute(latitude,longtitude)
+                val response= getLocationUsecase.execute(lattlong)
                 locationInfo.postValue(response)
             }else{
                 locationInfo.postValue(Resource.Error("No internet connection!"))

@@ -41,8 +41,9 @@ class LocationAdapter:RecyclerView.Adapter<LocationAdapter.LocationViewHolder>()
     ):RecyclerView.ViewHolder(binding.root){
         fun bind(locationResponse: LocationResponseItem){
             binding.apply {
-                cityNameTV.text="${locationResponse.locationType} : ${locationResponse.title}"
-                destinationTV.text="Destination: ${locationResponse.distance}"
+                locationTypeTV.text=locationResponse.locationType
+                cityNameTV.text=locationResponse.title
+                distanceTV.text=locationResponse.distance.toString()
             button.setOnClickListener {
                 onItemClickListener?.let {
                     it(locationResponse)
