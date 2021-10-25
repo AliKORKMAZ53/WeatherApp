@@ -9,7 +9,7 @@ Screenshots:
 
 Techs
 -----
-* MVVM CLean Architecture
+* MVVM Clean Architecture
 * Dagger Hilt
 * Retrofit
 * Okhttp(logging)
