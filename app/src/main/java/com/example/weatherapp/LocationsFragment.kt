@@ -36,7 +36,7 @@ class LocationsFragment : Fragment() {
         locationlls=(activity as MainActivity).doubleArray
         locationAdapter.setOnItemClickListener {
             val bundle=Bundle().apply {
-                putSerializable("locationbundle",it)
+                putSerializable("locationbundle",it.woeid)
             }
             findNavController().navigate(
                 R.id.action_locationsFragment_to_weatherFragment,bundle

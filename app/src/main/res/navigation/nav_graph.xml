@@ -12,13 +12,17 @@
         <action
             android:id="@+id/action_locationsFragment_to_weatherFragment"
             app:destination="@id/weatherFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.weatherapp.WeatherFragment"
         android:label="fragment_weather"
-        tools:layout="@layout/fragment_weather" />
+        tools:layout="@layout/fragment_weather" >
+        <argument
+            android:name="locationbundle"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
 </navigation>

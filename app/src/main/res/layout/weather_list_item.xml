@@ -10,15 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="7"
-        android:gravity="center"
-        android:text="Today" />
+        android:gravity="bottom|center"
+        android:text="Today"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/weatherImg"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/ic_c" />
+        app:srcCompat="@drawable/c" />
 
     <TextView
         android:id="@+id/weatherTV"
@@ -27,13 +29,14 @@
         android:layout_weight="3"
         android:gravity="center"
         android:text="Sunny"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/temperatureTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Temperature: 19 C"
@@ -43,80 +46,80 @@
         android:id="@+id/minTempTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Min. Temp.: 18 C"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/maxTempTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Max. Temp.: 22 C"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/humidityTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Humidity: 10"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/airPressureTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Air Pressure: 2"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/visibilityTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Visibility: 12"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/predictibilityTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Predictibility: 1.5"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/windSpeedTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Wind Speed: 12"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/windDirectionTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center"
         android:padding="8dp"
         android:text="Wind Direction: 14"
-        android:textSize="20sp" />
+        android:textSize="16dp" />
 
 </LinearLayout>

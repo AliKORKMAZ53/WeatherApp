@@ -6,6 +6,12 @@
     android:orientation="vertical"
     tools:context=".WeatherFragment" >
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/cityOnTopTV"
         android:layout_width="match_parent"
@@ -15,6 +21,7 @@
         android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weatherRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
@@ -23,8 +30,9 @@
         android:id="@+id/timeZoneTV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="9"
+        android:layout_weight="10"
         android:gravity="center"
         android:text="Timezone: US/Pasific"
         android:textSize="20sp" />
+
 </LinearLayout>
