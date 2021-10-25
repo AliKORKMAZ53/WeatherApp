@@ -37,10 +37,11 @@ class NetModule {
     @Singleton
     @Provides
     fun provideOkhttpClient():OkHttpClient{
+        val loggingInterceptorLevel=HttpLoggingInterceptor.Level.BASIC
+        val loggingInterceptor=HttpLoggingInterceptor()
+        loggingInterceptor.level=loggingInterceptorLevel
         return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor({
-                Log.d("okhttp",it)
-            }))
+            .addInterceptor(loggingInterceptor)
             .build()
 
     }
