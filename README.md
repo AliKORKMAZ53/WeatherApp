@@ -17,6 +17,7 @@ Techs
 * Navigation
 * Coroutine(Viewmodelscope)
 * FusedLocationService
+* DiffUtil
 
 API
 -----
